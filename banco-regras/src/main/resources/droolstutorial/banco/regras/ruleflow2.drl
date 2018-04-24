@@ -1,0 +1,22 @@
+package droolstutorial.banco.regras;
+
+//list any import classes here.
+import droolstutorial.Conta;
+
+rule "Conta grupo1"
+    ruleflow-group "grupo1"
+    when
+        $conta: Conta( )
+    then 
+        $conta.setNrConta(1);
+        System.out.println("Conta no grupo1 > 1000");
+end
+
+rule "Conta grupo2"
+    ruleflow-group "grupo2"
+    when
+        $conta: Conta( )
+    then
+        $conta.setNrConta(2);
+        System.out.println("Conta no grupo2 <= 1000");
+end

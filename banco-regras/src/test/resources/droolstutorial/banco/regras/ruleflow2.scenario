@@ -1,0 +1,144 @@
+<scenario>
+  <name>ruleflow2.scenario</name>
+  <maxRuleFirings>100000</maxRuleFirings>
+  <globals/>
+  <fixtures>
+    <fact-data>
+      <type>Conta</type>
+      <fieldData>
+        <field-data>
+          <name>nrConta</name>
+          <value>0</value>
+          <nature>4</nature>
+        </field-data>
+        <field-data>
+          <name>vlBalanco</name>
+          <value>2000</value>
+          <nature>4</nature>
+        </field-data>
+      </fieldData>
+      <name>conta1</name>
+      <isModify>false</isModify>
+    </fact-data>
+    <org.drools.workbench.models.testscenarios.shared.ActivateRuleFlowGroup>
+      <name>grupo1</name>
+    </org.drools.workbench.models.testscenarios.shared.ActivateRuleFlowGroup>
+    <execution-trace>
+      <executionTimeResult>1</executionTimeResult>
+      <numberOfRulesFired>1</numberOfRulesFired>
+    </execution-trace>
+    <expect-rule>
+      <ruleName>Conta grupo1</ruleName>
+      <explanation>Rule [Conta grupo1] was activated 1 times.</explanation>
+      <expectedFire>true</expectedFire>
+      <successResult>true</successResult>
+      <actualResult>1</actualResult>
+    </expect-rule>
+    <expect-rule>
+      <ruleName>Conta grupo2</ruleName>
+      <explanation>Rule [Conta grupo2] was not activated.</explanation>
+      <expectedFire>false</expectedFire>
+      <successResult>true</successResult>
+      <actualResult>0</actualResult>
+    </expect-rule>
+    <expect-fact>
+      <fieldValues>
+        <expect-field>
+          <fieldName>nrConta</fieldName>
+          <expected>1</expected>
+          <successResult>true</successResult>
+          <explanation>[conta1] field [nrConta] was [1].</explanation>
+          <operator>==</operator>
+          <nature>1</nature>
+        </expect-field>
+        <expect-field>
+          <fieldName>vlBalanco</fieldName>
+          <expected>2000</expected>
+          <successResult>true</successResult>
+          <explanation>[conta1] field [vlBalanco] was [2000].</explanation>
+          <operator>==</operator>
+          <nature>1</nature>
+        </expect-field>
+      </fieldValues>
+      <name>conta1</name>
+      <anonymous>false</anonymous>
+    </expect-fact>
+    <retract-fact>
+      <name>conta1</name>
+    </retract-fact>
+    <fact-data>
+      <type>Conta</type>
+      <fieldData>
+        <field-data>
+          <name>nrConta</name>
+          <value>0</value>
+          <nature>4</nature>
+        </field-data>
+        <field-data>
+          <name>vlBalanco</name>
+          <value>500</value>
+          <nature>4</nature>
+        </field-data>
+      </fieldData>
+      <name>conta2</name>
+      <isModify>false</isModify>
+    </fact-data>
+    <org.drools.workbench.models.testscenarios.shared.ActivateRuleFlowGroup>
+      <name>grupo2</name>
+    </org.drools.workbench.models.testscenarios.shared.ActivateRuleFlowGroup>
+    <execution-trace>
+      <executionTimeResult>4</executionTimeResult>
+      <numberOfRulesFired>1</numberOfRulesFired>
+    </execution-trace>
+    <expect-rule>
+      <ruleName>Conta grupo1</ruleName>
+      <explanation>Rule [Conta grupo1] was not activated.</explanation>
+      <expectedFire>false</expectedFire>
+      <successResult>true</successResult>
+      <actualResult>0</actualResult>
+    </expect-rule>
+    <expect-rule>
+      <ruleName>Conta grupo2</ruleName>
+      <explanation>Rule [Conta grupo2] was activated 1 times.</explanation>
+      <expectedFire>true</expectedFire>
+      <successResult>true</successResult>
+      <actualResult>1</actualResult>
+    </expect-rule>
+    <expect-fact>
+      <fieldValues>
+        <expect-field>
+          <fieldName>nrConta</fieldName>
+          <expected>2</expected>
+          <successResult>true</successResult>
+          <explanation>[conta2] field [nrConta] was [2].</explanation>
+          <operator>==</operator>
+          <nature>1</nature>
+        </expect-field>
+        <expect-field>
+          <fieldName>vlBalanco</fieldName>
+          <expected>500</expected>
+          <successResult>true</successResult>
+          <explanation>[conta2] field [vlBalanco] was [500].</explanation>
+          <operator>==</operator>
+          <nature>1</nature>
+        </expect-field>
+      </fieldValues>
+      <name>conta2</name>
+      <anonymous>false</anonymous>
+    </expect-fact>
+  </fixtures>
+  <lastRunResult>2018-04-24 18:31:51.265 UTC</lastRunResult>
+  <rules/>
+  <inclusive>false</inclusive>
+  <packageName>droolstutorial.banco.regras</packageName>
+  <imports>
+    <imports>
+      <org.kie.soup.project.datamodel.imports.Import>
+        <type>droolstutorial.Conta</type>
+      </org.kie.soup.project.datamodel.imports.Import>
+    </imports>
+  </imports>
+  <ksessions>
+    <string>defaultKieSession</string>
+  </ksessions>
+</scenario>
